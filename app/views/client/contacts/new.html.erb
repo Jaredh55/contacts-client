@@ -1,24 +1,25 @@
-<!-- <form action="/client/recipes" method="post"> -->
-  <%= form_tag "/client/recipes", method: :post do %>
+<!-- <form action="/client/contacts" method="post"> -->
+  <%= form_tag "/client/contacts", method: :post do %>
   <div>
-    Title: <input type="text" name="title">
+    First Name: <input type="text" name="first_name">
   </div>
   <div>
-    Chef: <input type="text" name="chef">
+    Middle Name: <input type="text" name="middle_name">
   </div>
   <div>
-    Prep Time: <input type="text" name="prep_time">
+    Last Name: <input type="text" name="last_name">
   </div>
   <div>
-    Ingredients: <input type="text" name="ingredients">
+    Email: <input type="text" name="email">
   </div>
   <div>
-    Directions: <input type="text" name="directions">
+    Phone: <input type="text" name="phone">
   </div>
   <div>
-    Image URL: <input type="text" name="image_url">
+    Bio: <textarea rows="6" cols="50" name="bio"></textarea>
   </div>
+
   
-  <input type="submit" value="Create Recipe">
+  <input type="submit" value="Create Contact">
 <!-- </form> -->
 <% end %>

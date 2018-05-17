@@ -12,21 +12,24 @@ def index
 
   def create
     client_params = {
-                        title: params[:title],
-                        chef: params[:chef],
-                        ingredients: params[:ingredients],
-                        directions: params[:directions],
-                        prep_time: params[:prep_time]
+                            first_name: params[:first_name],
+                            middle_name: params[:middle_name],
+                            last_name: params[:last_name],
+                            email: params[:email],
+                            phone: params[:phone],
+                            bio: params[:bio]
                       }
     response = Unirest.post(
                             "http://localhost:3000/api/contacts", parameters: client_params
                             )
-    render 'create.html.erb'
+    flash[:success] = "Successfully created contact"
+    contact = response.body
+    redirect_to "/client/contacts/#{contact["id"]}"
   end
 
   def show
     contact_id = params[:id]
-    response = Unirest.get("http://localhost:3000/api/contact/#{contact_id}")
+    response = Unirest.get("http://localhost:3000/api/contacts/#{contact_id}")
     @contact = response.body #hash
     render 'show.html.erb'
   end
@@ -40,23 +43,29 @@ def index
 
   def update
         client_params = {
-                        title: params[:title],
-                        chef: params[:chef],
-                        ingredients: params[:ingredients],
-                        directions: params[:directions],
-                        prep_time: params[:prep_time]
+                            first_name: params[:first_name],
+                            middle_name: params[:middle_name],
+                            last_name: params[:last_name],
+                            email: params[:email],
+                            phone: params[:phone],
+                            bio: params[:bio]
                       }
         response = Unirest.patch(
                              "http://localhost:3000/api/contacts/#{ params[:id] }",
                              parameters: client_params
                             )
-        render 'update.html.erb'
+        # render 'update.html.erb'
+      contact = response.body
+      flash[:success] = "Successfully updated contact"
+      redirect_to "/client/contacts/#{contact["id"]}"
   end
 
   def destroy
     contact_id = params[:id]
     response = Unirest.delete("http://localhost:3000/api/contacts/#{ contact_id }")
-    render 'destroy.html.erb'
+    # render 'destroy.html.erb'
+    flash[:success] = "Successfully deleted contact"
+    redirect_to "/client/contacts"
   end
 
 

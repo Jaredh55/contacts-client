@@ -1,12 +1,13 @@
 
-  <h2><%= @recipe["title"] %></h2>
-  <h3> Chef: <%= @recipe["chef"] %></h3>
-  <h4> Ingredients: <%= @recipe["ingredients"] %></h4>
-  <h4> Prep time: <%= @recipe["prep_time"] %></h4>
-  <h4> Directions: <%= @recipe["directions"] %></h4>
-  <img src="<% @recipe['image_url'] %>" alt="">
+  <h2> Name: <%= @contact["full_name"] %></h2>
+  <h3> Middle Name: <%= @contact["middle_name"] %></h3>
+  <h3> Email: <%= @contact["email"] %></h3>
+  <h4> Phone: <%= @contact["phone"] %></h4>
+  <h4> Bio: <%= @contact["bio"] %></h4>
+  <h4> Last updated on: <%= @contact["formatted"]["updated_at"] %></h4>
+
   <br>
-  <a href="/client/recipes/<%= @recipe['id'] %>/edit">Edit</a>
-  <a href="/client/recipes/<%= @recipe['id'] %>" data-method="delete">Delete</a>
+  <a href="/client/contacts/<%= @contact['id'] %>/edit">Edit</a>
+  <a href="/client/contacts/<%= @contact['id'] %>" data-method="delete">Delete</a>
 
 

@@ -1,10 +1,10 @@
-<% @recipes.each do |recipe| %>
-  <h2><a href="/client/recipes/<%= recipe["id"] %>"><%= recipe["title"] %></a></h2>
-  <h2><%= recipe["title"] %></h2>
-  <h3> Chef: <%= recipe["chef"] %></h3>
-  <h4> Prep time: <%= recipe["prep_time"] %></h4>
-  <h4> Ingredients: <%= recipe["ingredients"] %></h4>
-  <h4> Directions: <%= recipe["directions"] %></h4>
+<% @contacts.each do |contact| %>
+  <h2><a href="/client/contacts/<%= contact["id"] %>"><%= contact["full_name"] %></a></h2>
+  <h3> Middle Name: <%= contact["middle_name"] %></h3>
+  <h4> Email: <%= contact["email"] %></h4>
+  <h4> Phone: <%= contact["phone"] %></h4>
+  <h4> Bio: <%= contact["bio"] %></h4>
+
   <br/>
 
 <% end %>
